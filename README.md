@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+GIT commands:
+----------------------------
+git remote set-url origin https://github.com/Surajjha8232/Memo.git
+
+git config --global user.email "smdonthula@gmail.com"
+git config --global user.name "Shridhar Donthula"
+
+git pull origin main
+
+git add .
+git commit -m "msg"
+git push origin main
