@@ -1,0 +1,38 @@
+MOM  
+
+MOM TABLE 
+
+
+
+Agenda Table 
+sr no agenda topics  
+
+git token = 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
+
+if not able to login in the git bash 
+git push https://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@github.com/Surajjha8232/Memo.git
+
+
+
+git remote set-url origin https://github.com/Surajjha8232/Memo.git 
+  
+  
+ PUSH CODE
+git add . 
+git commit -m "new commit" 
+git push origin main   # login in the system 
+
+CLONE 
+git clone https://github.com/Surajjha8232/Memo.git  
+
+PULL CODE
+git pull origin 
+
+
+MONGO DB 
+id memo 
+pwd -memo123 
+npm install express mongoose cors nodemon
+
+mongo link to connect compass 
+mongodb+srv://memo:<password>@cluster0.cikoc.mongodb.net/test
