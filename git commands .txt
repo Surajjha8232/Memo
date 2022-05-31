@@ -37,3 +37,7 @@ npm install express mongoose cors nodemon
 mongo link to connect compass 
 mongodb+srv://memo:<password>@cluster0.cikoc.mongodb.net/test
 mongodb+srv://memo:memo123@cluster0.cikoc.mongodb.net/test
+
+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
+
+git push https://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@github.com/Surajjha8232/MOM.git
