@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link,Routes,Navigate } from 'react-rout
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login"; 
-import FrontPage from "./components/FrontPage";
 import ExcercisesList from './components/excercises-list.component' ;
 import Navbar from './components/navbar.component';
 import EditExcercises from './components/edit-excercises.component' ;
@@ -24,7 +23,6 @@ function App() {
 	return (
     <Router>
 		<Routes> 
-			<Route path="/frontpage"  exact element = {<FrontPage />} />
 			{user && <Route path="/" exact element={<Main />} />}
 			<Route path="/signup" exact element={<Signup />} />
 			<Route path="/login" exact element={<Login />} />
