@@ -33,7 +33,7 @@ function App() {
 			{user && <Route path="/user" exact element={<CreateUsers />} />}
 
 			<Route path='/edit/:id' element={<EditExcercises />} /> 
-			<Route path="/" element={<Navigate replace to="/frontpage" />} /> 
+			<Route path="/" element={<Navigate replace to="/login" />} /> 
 			
 		</Routes>
     </Router>
