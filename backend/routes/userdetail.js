@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { Userdetail, validatedetail } = require("../models/userdetail.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt"); 
+const jwt = require('jsonwebtoken') ;
+const asyncHandler =require('express-async-handler');
 
 router.post("/", async (req, res) => {
 	try {
@@ -17,8 +19,8 @@ router.post("/", async (req, res) => {
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
 
-		await new Userdetail({ ...req.body, password: hashPassword }).save();
-		res.status(201).send({ message: "User created successfully" });
+		const newuser = await new Userdetail({ ...req.body, password: hashPassword }).save();
+		res.status(201).json({ _id:newuser._id,email:newuser.email,message: "User created successfully" });
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}

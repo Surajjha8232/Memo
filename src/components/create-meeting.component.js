@@ -6,33 +6,26 @@ import Navbar from './navbar.component';
 
 
 export default class CreateMeeting extends Component{
+    
+    
     constructor(props){
         super(props); 
         this.onChangeNOM=this.onChangeNOM.bind(this);
         this.onChangeTOM=this.onChangeTOM.bind(this);
         this.onChangeDate=this.onChangeDate.bind(this); 
         this.onChangeDuration=this.onChangeDuration.bind(this); 
-
-
-        
         this.onSubmit=this.onSubmit.bind(this);
         this.state={
             NOM: '', 
             tomValue:'',
             date: new Date(),
-            duration:0,
-
-            
-            ddlTOM:[],
-            ddlStatus:[],
-            ddlCriticality:[]
-
+            duration:0, 
+            ddlTOM:[]
         }
 
     }
 
     componentDidMount(){
-        
             axios.get('http://localhost:5000/ddl/findTOM/')
             .then(response => {
                 if(response.data.length > 0){
@@ -56,15 +49,6 @@ export default class CreateMeeting extends Component{
             tomValue: e.target.value
         });
     }
-
-   
-   
-
-
-
-
-
-    
     onChangeDate(date) {
         this.setState({
             date: date
@@ -75,31 +59,32 @@ export default class CreateMeeting extends Component{
             duration: e.target.value
         });
     }
-
-
-
-
-
-
-
-
-
-
     onSubmit(e){
         e.preventDefault();
-        const meeting={
+        const body={
             NOM:this.state.NOM,
-            tomValue:this.state.tomValue,
+            TOM:this.state.tomValue,
             date:this.state.date,
-            duration:this.state.duration,
-
-
+            duration:this.state.duration, 
             
         }
-        console.log(meeting)
-        axios.post('http://localhost:5000/meeting/add',meeting)
+        
+        console.log(body) 
+        let webApiUrl = 'http://localhost:5000/meeting/addmeeting';
+        let tokenStr =  localStorage.getItem("token"); 
+        axios.post(
+            webApiUrl, 
+            body, 
+            {
+            headers: { 
+                'Authorization': `Bearer ${tokenStr}`,
+                'Content-Type' : 'text/json' 
+            }
+        })
             .then(res => console.log(res.data));
-        window.location='/';
+        //axios.post('http://localhost:5000/meeting/addmeeting',meeting)
+         //   .then(res => console.log(res.data));
+        //window.location='/';
     }
     render(){
         return (
@@ -156,6 +141,7 @@ export default class CreateMeeting extends Component{
                             onChange={this.onChangeDuration} 
                             /> 
                     </div>
+                    
                     <div className="form-group"> 
                     <input
                         type="submit" 

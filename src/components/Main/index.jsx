@@ -10,6 +10,7 @@ import CreateUsers from '../create-user.component';
 const Main = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
+		localStorage.removeItem("id");
 		window.location.reload();
 	};
 
